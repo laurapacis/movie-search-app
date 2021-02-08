@@ -3,8 +3,10 @@ import '../App.css'
 
 function MovieCard(props) {
     const [movieData, setMovieData] = useState({});
+    const myApiKey = process.env.REACT_APP_API_KEY;
+
     function getMovieData() {
-        fetch(`http://www.omdbapi.com/?apikey=343a08fc&i=${props.id}`)
+        fetch(`http://www.omdbapi.com/?apikey=${myApiKey}&i=${props.id}`)
             .then((res) => {
                 return res.json() // convert to json
             })
@@ -15,7 +17,7 @@ function MovieCard(props) {
     }
 
     const getMovie = async () => {
-        const response = await fetch(`http://www.omdbapi.com/?apikey=343a08fc&i=${props.id}`)
+        const response = await fetch(`http://www.omdbapi.com/?apikey=${myApiKey}&i=${props.id}`)
         const data = await response.json()
         console.log("this is movie Data ", data);
         setMovieData(data)

@@ -16,7 +16,7 @@ function App() {
 
   const submitHandler = () => {
    // console.log("...searching")
-    fetch(`http://www.omdbapi.com/?apikey=343a08fc&s=${search}`)
+    fetch(`http://www.omdbapi.com/?apikey=${myApiKey}&s=${search}`)
       .then((res) => {
         return res.json()
       })
