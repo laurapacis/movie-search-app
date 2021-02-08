@@ -9,7 +9,7 @@ function MovieCard(props) {
                 return res.json() // convert to json
             })
             .then((data) => {
-                console.log("this is movie Data ", data);
+                console.log("this is movie Data", data);
                 setMovieData(data)
             })
     }
