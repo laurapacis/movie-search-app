@@ -1,5 +1,5 @@
 {
-  "name": "movie-search",
+  "name": "movie-library-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

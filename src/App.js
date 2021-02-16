@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import Search from './components/Search';
 import MovieCard from './components/MovieCard';
+import Footer from './components/Footer';
 import './App.css';
-
-
 
 function App() {
   const myApiKey = process.env.REACT_APP_API_KEY;
@@ -15,7 +13,6 @@ function App() {
   }
 
   const submitHandler = () => {
-   // console.log("...searching")
     fetch(`http://www.omdbapi.com/?apikey=${myApiKey}&s=${search}`)
       .then((res) => {
         return res.json()
@@ -28,7 +25,6 @@ function App() {
 
   return (
     <div id="app">
-      Movie App
       <Search changeHandler={changeHandler} submitHandler={submitHandler} />
       {moviesList && moviesList.length > 0 ? (
         moviesList.map((item, index) => {
@@ -36,8 +32,9 @@ function App() {
         })
         
       ) : (
-          <p> couldnt find any movie. please search again.</p>
+          <p>Couldn't find any movie. Please try again.</p>
         )}
+      <Footer />
     </div>
   );
 }
